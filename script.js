@@ -14,17 +14,31 @@ fetch('https://api.github.com/users/andreavaughan')
     about.appendChild(nameParagraph)
 
     const gitHubLink = document.createElement('a')
-    const link = document.createTextNode(data.html_url)
-    const gitLinkLine = document.createElement('p')
-    gitHubLink.appendChild(link)
+    const linkOne = document.createTextNode('GitHub URL ' + data.html_url)
+    gitHubLink.appendChild(linkOne)
     gitHubLink.href = data.html_url
     gitHubLink.target = "_blank"
-    console.log(gitHubLink)
-
-    gitLinkLine.innerText = 'GitHub URL ' + gitHubLink
-
-    about.appendChild(gitLinkLine)
+    about.appendChild(gitHubLink)
 
     const company = document.createElement('p')
+    company.innerText = 'Company: ' + data.company
+    about.appendChild(company)
 
-})
+    const website = document.createElement('a')
+    const linkTwo = document.createTextNode('Website ' + data.blog)
+    website.appendChild(linkTwo)
+    website.href = data.blog
+    website.target = "_blank"
+    about.appendChild(website)
+
+    const bioText = document.createElement('p')
+    bioText.innerText = data.bio
+    bio.appendChild(bioText)
+
+    const picture = document.createElement('img')
+    picture.src = data.avatar_url
+    console.log(picture.src)
+    bio.appendChild(picture)
+
+})  
+    
