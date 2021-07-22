@@ -62,13 +62,30 @@ fetch('https://api.github.com/users/andreavaughan')
     console.log(picture.src)
     bioDiv.appendChild(picture)
 
+    const repos = document.createElement('div')
+    repos.setAttribute('id', 'repos')
+    repos.classList.add('card')
+    infoCard.appendChild(repos)
+    
+    const repoDiv = document.getElementById('repos')
+    const repoLabel = document.createElement('h2')
+    repoLabel.innerText = 'Repos'
+    repoDiv.appendChild(repoLabel)
+
     fetch(data.repos_url) 
         .then(res => res.json())
         .then(repos => {
             for (repo of repos){
                 let repoName = document.createElement('h3')
                 repoName.innerText = repo.name
-                infoCard.appendChild(repoName)
+                repoDiv.appendChild(repoName)
+
+                let repoLink = document.createElement(a)
+                const link = document.createTextNode('Repos: ' + repo.url)
+                repoLink.appendChild(link)
+                repoLink.href = repo.url
+                repoLink.target = "_blank"
+                repoDiv.appendChild(repoLink)
             }
         })
 })  

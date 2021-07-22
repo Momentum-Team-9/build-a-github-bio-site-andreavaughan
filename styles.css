@@ -9,6 +9,7 @@ h1 {
     flex-flow: row nowrap;
     justify-content: center;
     flex-basis: 100%;
+    margin: 2em;
 }
 
 h2{
