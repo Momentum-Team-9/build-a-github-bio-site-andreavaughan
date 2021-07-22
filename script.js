@@ -1,13 +1,18 @@
 const root = document.getElementById('root')
-const about = document.getElementById('about')
-const bio = document.getElementById('bio')
 
 fetch('https://api.github.com/users/andreavaughan')
 .then(response => response.json())
 .then(data => {
+    const infoCard = document.createElement('div')
+    infoCard.classList.add('info-card')
+    root.appendChild(infoCard)
+    
     const myName = document.createElement('h1')
     myName.innerText = data.name
-    root.appendChild(myName)
+    infoCard.appendChild(myName)
+
+    const about = document.getElementById('about')
+    about.classList.add('info-card')
 
     const nameParagraph = document.createElement('p')
     nameParagraph.innerText = 'Name ' + data.name
@@ -31,6 +36,9 @@ fetch('https://api.github.com/users/andreavaughan')
     website.target = "_blank"
     about.appendChild(website)
 
+    const bio = document.getElementById('bio')
+    bio.classList.add('info-card')
+
     const bioText = document.createElement('p')
     bioText.innerText = data.bio
     bio.appendChild(bioText)
@@ -40,5 +48,14 @@ fetch('https://api.github.com/users/andreavaughan')
     console.log(picture.src)
     bio.appendChild(picture)
 
+    fetch(data.repos_url) //this is called a nested api, it's an api request within an api request
+        .then(res => res.json())
+        .then(repos => {
+            for (repo of repos){
+                let repoName = document.createElement('h3')
+                repoName.innerText = repo.name
+                bio.appendChild(repoName)
+            }
+        })
 })  
     

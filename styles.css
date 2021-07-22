@@ -1,3 +1,11 @@
 body {
-    background-color: bisque;
+    background: linear-gradient(rgba(0, 166, 251, 0.2) 20%, rgba(255, 255, 255, 0.2) 100%);
+    color: #051923;
+    font-family: 'Lato', sans-serif;
+}
+
+footer {
+    background-image: url('images/mountains2.png');
+    min-height: 300px;
+
 }
