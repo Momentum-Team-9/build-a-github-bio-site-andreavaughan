@@ -4,8 +4,44 @@ body {
     font-family: 'Lato', sans-serif;
 }
 
+h1 {
+
+}
+
+h2{
+
+}
+
+.info-card {
+    display: flex;
+    flex-flow: column nowrap;
+    flex: 1 1 auto;
+    
+}
+
+img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 50%;
+}
+
 footer {
     background-image: url('images/mountains2.png');
     min-height: 300px;
 
 }
+
+a:link {
+    color: #006494;
+}
+
+a:visited {
+    color: #0582CA;
+}
+
+a:hover {
+    color: #003554;
+}
+
+a:active {
+    color: #051923;
