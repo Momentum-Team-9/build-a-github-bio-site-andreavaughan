@@ -80,7 +80,7 @@ fetch('https://api.github.com/users/andreavaughan')
                 repoName.innerText = repo.name
                 repoDiv.appendChild(repoName)
 
-                let repoLink = document.createElement(a)
+                let repoLink = document.createElement('a')
                 const link = document.createTextNode('Repos: ' + repo.url)
                 repoLink.appendChild(link)
                 repoLink.href = repo.url
